@@ -131,23 +131,3 @@ section {
     font-weight: 300;
 }
 
-/* ========================================================
-   ASTRONOT 3D (Three.js)
-   Full-screen, fixed, transparan. Posisi objek di dalamnya
-   diatur lewat kode (WAYPOINTS di script.js), bukan lewat CSS,
-   karena ini kanvas WebGL bukan elemen HTML biasa.
-   ======================================================== */
-
-#astro-3d {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    pointer-events: none; /* biar gak menghalangi klik/hover elemen di bawahnya */
-    opacity: 1;
-}
-
-#astro-canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-}

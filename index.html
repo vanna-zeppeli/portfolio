@@ -50,12 +50,6 @@
         </div>
     </div>
 
-    <!-- Wadah full-screen buat render astronot 3D. Fixed + pointer-events:none
-         supaya nggak ganggu klik/scroll konten di bawahnya. -->
-    <div id="astro-3d">
-        <canvas id="astro-canvas"></canvas>
-    </div>
-
     <section class="about">
         <div class="about-content">
             <h1>Halo Dunia</h1>
@@ -65,16 +59,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- Import map: supaya script.js bisa "import * as THREE from 'three'"
-         tanpa perlu bundler (Vite/Webpack dll). -->
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-        }
-    }
-    </script>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
