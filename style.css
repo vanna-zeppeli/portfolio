@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111;
+    color: white;
+    font-family: "Google Sans Flex", Arial, Helvetica, sans-serif; 
+    min-height: 100vh; 
+    overflow-x: hidden; /* Penting untuk menyembunyikan scroll samping bawaan browser */
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Catatan: Aturan scroll-snap bawaan dihapus karena tugas locking layar sudah diambil alih oleh GSAP Pinning */
+section {
+    height: 100vh;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+}
+
+.huruf-e {
+    letter-spacing: -4px;
+    font-size: 18vw;
+    line-height: 100%;
+    font-weight: 200;
+    font-variation-settings: 'wdth' 30, 'wght' 100;
+    text-align: center;
+    transition: font-variation-settings 2s cubic-bezier(0.02, 1.09, 0.81, 0.79); 
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.huruf-e:hover {
+    font-variation-settings: 'wdth' 150, 'wght' 100;
+}
+
+.teks-asli {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.video-bg {
+    position: absolute;
+    inset: 0;
+    height: 100%;      
+    width: 100%;          
+    aspect-ratio: 1 / 1;  
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    border-radius: 0px;  
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.7, 1, 0.2, 1);
+    pointer-events: none;
+}
+
+.huruf-e:hover .video-bg {
+    opacity: 1;
+}
+
+.about {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about h1 {
+    font-size: 10rem;
+}
+
+
+/* ========================================================
+   CSS HORIZONTAL SCROLL YANG DIPERBAIKI (SUPER KETAT)
+   ======================================================== */
+
+.horizontal-scroll-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.horizontal-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content; 
+    height: 100vh;
+    margin: 0;   /* Tambahkan ini */
+    padding: 0;  /* Tambahkan ini */
+    will-change: transform;
+}
+
+.card {
+    /* Mengunci ukuran card agar pas tepat 1 layar penuh */
+    width: 100vw;
+    flex-shrink: 0; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Warna latar belakang tetap sama */
+.panel-1 { background: #161616; }
+.panel-2 { background: #1c1c1c; }
+.panel-3 { background: #222222; }
+
+.card h2 {
+    font-size: 8rem;
+    font-weight: 300;
+}
+
+/* ========================================================
+   ASTRONOT 3D (Three.js)
+   Full-screen, fixed, transparan. Posisi objek di dalamnya
+   diatur lewat kode (WAYPOINTS di script.js), bukan lewat CSS,
+   karena ini kanvas WebGL bukan elemen HTML biasa.
+   ======================================================== */
+
+#astro-3d {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none; /* biar gak menghalangi klik/hover elemen di bawahnya */
+    opacity: 1;
+}
+
+#astro-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

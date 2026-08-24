@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elane</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wdth,wght@25..151,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="huruf-e">
+                <span class="teks-asli">W</span>
+                <video class="video-bg" src="Aset web/12149178_1920_1080_24fps.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="huruf-e">
+                <span class="teks-asli">A</span>
+                <video class="video-bg" src="Aset web/12987889-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="huruf-e">
+                <span class="teks-asli">H</span>
+                <video class="video-bg" src="Aset web/12802106_3840_2160_30fps.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="huruf-e">
+                <span class="teks-asli">Y</span>
+                <video class="video-bg" src="Aset web/12987889-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="huruf-e">
+                <span class="teks-asli">U</span>
+                <video class="video-bg" src="Aset web/12149178_1920_1080_24fps.mp4" autoplay muted loop playsinline></video>
+            </div>
+        </div>
+    </section>
+
+    <div class="horizontal-scroll-container">
+        <div class="horizontal-track">
+            <div class="card panel-1">
+                <h2>PORTFOLIO</h2>
+            </div>
+            <div class="card panel-2">
+                <h2>SHOWCASE</h2>
+            </div>
+            <div class="card panel-3">
+                <h2>SERVICES</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wadah full-screen buat render astronot 3D. Fixed + pointer-events:none
+         supaya nggak ganggu klik/scroll konten di bawahnya. -->
+    <div id="astro-3d">
+        <canvas id="astro-canvas"></canvas>
+    </div>
+
+    <section class="about">
+        <div class="about-content">
+            <h1>Halo Dunia</h1>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Import map: supaya script.js bisa "import * as THREE from 'three'"
+         tanpa perlu bundler (Vite/Webpack dll). -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
