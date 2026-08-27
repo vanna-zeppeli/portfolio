@@ -1,3 +1,8 @@
+:root {
+    --font: "Google Sans Flex", Arial, Helvetica, sans-serif;
+    --font1: "Amarante";
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +12,10 @@
 body {
     background: #111;
     color: white;
-    font-family: "Google Sans Flex", Arial, Helvetica, sans-serif; 
-    min-height: 100vh; 
-    overflow-x: hidden; /* Penting untuk menyembunyikan scroll samping bawaan browser */
+    font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Penting untuk menyembunyikan scroll samping bawaan browser */
 
     &::-webkit-scrollbar {
         display: none;
@@ -43,7 +49,7 @@ section {
     font-weight: 200;
     font-variation-settings: 'wdth' 30, 'wght' 100;
     text-align: center;
-    transition: font-variation-settings 2s cubic-bezier(0.02, 1.09, 0.81, 0.79); 
+    transition: font-variation-settings 2s cubic-bezier(0.02, 1.09, 0.81, 0.79);
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -63,13 +69,13 @@ section {
 .video-bg {
     position: absolute;
     inset: 0;
-    height: 100%;      
-    width: 100%;          
-    aspect-ratio: 1 / 1;  
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
     z-index: 1;
-    border-radius: 0px;  
+    border-radius: 0px;
     opacity: 0;
     transition: opacity 0.5s cubic-bezier(0.7, 1, 0.2, 1);
     pointer-events: none;
@@ -104,17 +110,19 @@ section {
 .horizontal-track {
     display: flex;
     flex-wrap: nowrap;
-    width: max-content; 
+    width: max-content;
     height: 100vh;
-    margin: 0;   /* Tambahkan ini */
-    padding: 0;  /* Tambahkan ini */
+    margin: 0;
+    /* Tambahkan ini */
+    padding: 0;
+    /* Tambahkan ini */
     will-change: transform;
 }
 
 .card {
     /* Mengunci ukuran card agar pas tepat 1 layar penuh */
     width: 100vw;
-    flex-shrink: 0; 
+    flex-shrink: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -122,9 +130,17 @@ section {
 }
 
 /* Warna latar belakang tetap sama */
-.panel-1 { background: #161616; }
-.panel-2 { background: #1c1c1c; }
-.panel-3 { background: #222222; }
+.panel-1 {
+    background: #161616;
+}
+
+.panel-2 {
+    background: #1c1c1c;
+}
+
+.panel-3 {
+    background: #222222;
+}
 
 .card h2 {
     font-size: 8rem;
@@ -144,7 +160,7 @@ section {
 .horizontal-scroll-container .card .container .left {
     display: flex !important;
     flex: 1;
-    
+
     position: relative !important;
 }
 
@@ -153,29 +169,48 @@ section {
     inset: 0;
     margin: auto;
     z-index: 2;
-    width: 420px;
-    height: 420px;
+    width: 490px;
+    height: 490px;
     border-radius: 10px !important;
     /* overflow: hidden; */
 }
 
-.horizontal-scroll-container .card .container .left .img img {
+.img-track {
+    position: relative;
     width: 100%;
-    height: 120%;
+    height: 100%;
+}
+
+.img-track img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     bottom: 0;
     margin-top: 70px;
+    pointer-events: none;
+    /* biar mousemove tembus ke .img */
 }
+
+.foto-negative {
+    filter: invert(1) brightness(1.1);
+    clip-path: circle(0px at 50% 50%);
+    transition: clip-path 0.15s ease-out;
+    will-change: clip-path;
+}
+
 
 .horizontal-scroll-container .card .container .left .orbit-ring {
     position: absolute;
     inset: 0;
     margin: auto;
     z-index: 1;
-    width: 380px;
-    height: 380px;
+    width: 450px;
+    height: 450px;
     background: #111 !important;
-    border-radius: 16px !important;
+    border-radius: 200px 200px 0 0 !important;
 }
 
 .horizontal-scroll-container .card .container .left .orbit-klop {
@@ -200,11 +235,12 @@ section {
     position: absolute;
     top: 50%;
     left: 50%;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .horizontal-scroll-container .card .container .left .orbit-icon {
-    width: 65px;
-    height: 65px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: black;
     display: flex;
@@ -212,12 +248,14 @@ section {
     justify-content: center;
     overflow: hidden;
 
+
 }
 
 @keyframes putar-balik {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(-360deg);
     }
@@ -236,12 +274,6 @@ section {
     height: 60%;
     object-fit: cover;
     background-size: cover;
-}
-
-.horizontal-scroll-container .card .container .left .text {
-    position: absolute;
-    inset: 0;
-    margin: auto;
 }
 
 .horizontal-scroll-container .card .container .right {
